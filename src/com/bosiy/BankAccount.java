@@ -69,7 +69,6 @@ public class BankAccount {
                 + ";\nTransfer to: " + receiver.accountHolder + "; ");
     }
 
-
     @Override
     public String toString() {
         return "Account number: " + this.accountNumber + ";\nAccount holder: "
