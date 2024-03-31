@@ -2,6 +2,7 @@ package com.bosiy;
 
 public class BankAccount {
 
+    private final double commission = 3.5;
     private String accountNumber;
     private String accountHolder;
     private double balance;
@@ -59,8 +60,6 @@ public class BankAccount {
     }
 
     public void transferTo(double value, BankAccount receiver) {
-        double commission = 3.5;
-
         if (this.balance >= value - commission) {
             this.balance = this.balance - value - commission;
 
