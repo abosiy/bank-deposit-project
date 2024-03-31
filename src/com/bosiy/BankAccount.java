@@ -59,14 +59,16 @@ public class BankAccount {
     }
 
     public void transferTo(double value, BankAccount receiver) {
-        if (this.balance >= value - 3.5) {
-            this.balance = this.balance - value - 3.5;
+        double commission = 3.5;
+
+        if (this.balance >= value - commission) {
+            this.balance = this.balance - value - commission;
 
             double receiverBalance = receiver.getBalance();
             receiver.setBalance(receiverBalance + value);
         }
-        System.out.println("Transfer from: " + accountHolder
-                + ";\nTransfer to: " + receiver.accountHolder + "; ");
+        System.out.println("Transfer from: " + accountHolder + ";\nTransfer to: "
+                + receiver.accountHolder + "; ");
     }
 
     @Override
