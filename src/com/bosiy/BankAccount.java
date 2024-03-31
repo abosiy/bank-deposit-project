@@ -60,8 +60,10 @@ public class BankAccount {
     }
 
     public void transferTo(double value, BankAccount receiver) {
-        if (this.balance >= value - COMMISSION) {
-            this.balance = this.balance - value - COMMISSION;
+        double transactionCost = value - COMMISSION;
+
+        if (this.balance >= transactionCost) {
+            this.balance = this.balance - transactionCost;
 
             double receiverBalance = receiver.getBalance();
             receiver.setBalance(receiverBalance + value);
