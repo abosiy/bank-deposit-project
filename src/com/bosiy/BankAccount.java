@@ -37,17 +37,22 @@ public class BankAccount {
         this.balance = balance;
     }
 
+    public boolean checkOut(double value) {
+        return value <= 0;
+    }
+
     public void deposit(double value) {
-        if (value <= 0) {
+        if (checkOut(value)) {
             System.out.println("This operation haven't sense");
             return;
         }
+
         this.balance += value;
         System.out.println("Your balance: " + this.balance);
     }
 
     public void withdraw(double value) {
-        if (value <= 0) {
+        if (checkOut(value)) {
             System.out.println("This operation haven't sense");
             return;
         }
@@ -63,7 +68,7 @@ public class BankAccount {
         double transactionCost = value - COMMISSION;
 
         if (this.balance >= transactionCost) {
-            this.balance = this.balance - transactionCost;
+            this.balance -= transactionCost;
 
             double receiverBalance = receiver.getBalance();
             receiver.setBalance(receiverBalance + value);
