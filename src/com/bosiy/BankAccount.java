@@ -37,12 +37,12 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public boolean checkOut(double value) {
+    public boolean isNegative(double value) {
         return value <= 0;
     }
 
     public void deposit(double value) {
-        if (checkOut(value)) {
+        if (isNegative(value)) {
             System.out.println("This operation haven't sense");
             return;
         }
@@ -52,7 +52,7 @@ public class BankAccount {
     }
 
     public void withdraw(double value) {
-        if (checkOut(value)) {
+        if (isNegative(value)) {
             System.out.println("This operation haven't sense");
             return;
         }
